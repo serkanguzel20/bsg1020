@@ -186,6 +186,27 @@
       </div>
     </div>
 
+</body>
+</html>
+
+<script src="main1.js"></script>
+
+<script>
+  // Autoplay engellenirse sessizce dener
+  window.addEventListener("load", () => {
+    const music = document.getElementById("bgMusic");
+    if (!music) return;
+
+    music.volume = 0.6;
+
+    const playPromise = music.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.log("Tarayıcı autoplay müziği engelledi.");
+      });
+    }
+  });
+</script>
     <div class="long-g long-g--0">
       <div class="grow-ans" style="--d:3s">
         <div class="leaf leaf--0"></div>
@@ -308,4 +329,68 @@
   </div>
 </body>
 </html>
-<script src="main1.js"></script>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+    }
+
+    /* Başlangıç ekranı */
+    #startScreen {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      font-size: 26px;
+      cursor: pointer;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🌸 TIKLAMA EKRANI -->
+  <div id="startScreen">
+    🌸 Dokun ve sürprizi başlat 🌸
+  </div>
+
+  <!-- 🌱 SENİN ANİMASYON ALANI (İÇİNE KENDİ KODUNU KOYABİLİRSİN) -->
+  <div id="content" style="display:none;">
+    <!-- Buraya çiçek / animasyon kodların gelir -->
+  </div>
+
+  <!-- 🎵 MÜZİK -->
+  <audio id="bgMusic" loop>
+    <source src="./music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const startScreen = document.getElementById("startScreen");
+    const music = document.getElementById("bgMusic");
+    const content = document.getElementById("content");
+
+    startScreen.addEventListener("click", () => {
+      music.volume = 0.6;
+      music.play();
+      startScreen.style.display = "none";
+      content.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
+
